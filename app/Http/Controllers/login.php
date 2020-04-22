@@ -17,12 +17,23 @@ class login extends Controller
                     ->where('password', '=', $password)
                     ->get();
         if(count($users) > 0){
-            session(['userId' => $users[0]->id_user ]);
-            session(['email' => $users[0]->email ]);
-            session(['accessId' => $users[0]->id_akses]);
+            session([
+                'userId' => $users[0]->id,
+                'email' => $users[0]->email,
+                'accessId' => $users[0]->akses,
+                'jakademi' => $users[0]->jakademi,
+                'prodi' => $users[0]->prodi,
+                'jurusan' => $users[0]->jurusan
+            ]);
             return redirect('/home');
         }else{
             return view('login')->with('message', 'Username tidak terdaftar.');
         }
     }
+
+    public function logout(Request $request){
+        $request->session()->forget('userId','email','accessId','jakademi','prodi','jurusan');
+        return view('login');
+    }
+
 }

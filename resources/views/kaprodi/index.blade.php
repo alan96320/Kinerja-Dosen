@@ -3,7 +3,7 @@
 @section('konten')
     <div style="padding-left: 300px; padding-right: 300px;">
         <div class="row mt-4">
-            <div class="col-md-6"><h2>Daftar Kaprodi</h2></div>
+            <div class="col-md-6"><h2>Daftar Prodi</h2></div>
             <div class="col-md-6 text-right"><a href="javascript:void(0)" data-toggle="modal" data-target="#tambah" class="btn btn-outline-primary">Tambah Data</a></div>
         </div>
         <div class="table-responsive mt-4">
@@ -11,7 +11,7 @@
                 <thead>
                     <tr class="text-center">
                         <th style="width: 20px">#</th>
-                        <th>NAMA KAPRODI</th>
+                        <th>NAMA PRODI</th>
                         <th>ACTION</th>
                     </tr>
                 </thead>
@@ -43,7 +43,7 @@
     <div class="modal-dialog modal-sm">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Add New Kaprodi</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Add New Prodi</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -52,7 +52,7 @@
                 {{ csrf_field() }}
                 <div class="modal-body">
                     <div class="form-group">
-                        <label for="recipient-name" class="col-form-label">Nama Kaprodi:</label>
+                        <label for="recipient-name" class="col-form-label">Nama Prodi:</label>
                         <input type="text" class="form-control" id="recipient-name" name="nama_prodi" required>
                     </div>
                 </div>

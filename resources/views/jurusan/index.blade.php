@@ -12,7 +12,7 @@
                     <tr class="text-center">
                         <th style="width: 20px">#</th>
                         <th>NAMA JURUSAN</th>
-                        <th>NAMA KAPRODI</th>
+                        <th>NAMA PRODI</th>
                         <th>ACTION</th>
                     </tr>
                 </thead>
@@ -58,7 +58,7 @@
                         <input type="text" class="form-control" id="recipient-name" name="nama_jurusan" required>
                     </div>
                     <div class="form-group">
-                        <label for="idKaprodi" class="col-form-label" >Nama Kaprodi:</label>
+                        <label for="idKaprodi" class="col-form-label" >Nama Prodi:</label>
                         <select name="idKaprodi" id="idKaprodi" class="form-control">
                             @foreach ($kaprodi as $data)
                                 <option value="{{ $data->id }}">{{ $data->nama_prodi }}</option>

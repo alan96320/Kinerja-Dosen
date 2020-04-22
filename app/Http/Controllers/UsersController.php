@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\users;
+use App\jurusan;
+use App\kaprodi;
 use DataTables;
 use Illuminate\Http\Request;
 
@@ -16,7 +18,9 @@ class UsersController extends Controller
     public function index()
     {
         $users = users::all();
-    	return view('users/index',['users' => $users]);
+        $kaprodi = kaprodi::all();
+        $jurusan = jurusan::all();
+    	return view('users/index',['users' => $users,'kaprodi' => $kaprodi, 'jurusan' => $jurusan]);
     }
 
     /**
@@ -26,7 +30,9 @@ class UsersController extends Controller
      */
     public function create()
     {
-        return view('users/create');
+        $kaprodi = kaprodi::all();
+        $jurusan = jurusan::all();
+        return view('users/create',['kaprodi' => $kaprodi, 'jurusan' => $jurusan]);
     }
 
     /**
@@ -60,6 +66,7 @@ class UsersController extends Controller
             'email' => $request->email,
             'nip' => $request->nip,
             'jabatan' => $request->jabatan,
+            'jakademi' => $request->jakademi,
             'jurusan' => $request->jurusan,
             'prodi' => $request->prodi,
             'tgl_lahir' =>$request->tgl_lahir,
@@ -91,7 +98,9 @@ class UsersController extends Controller
     public function edit($id)
     {
         $users = users::find($id);
-        return view('users/edit', ['users' => $users]);
+        $kaprodi = kaprodi::all();
+        $jurusan = jurusan::all();
+        return view('users/edit', ['users' => $users,'kaprodi' => $kaprodi, 'jurusan' => $jurusan]);
     }
 
     /**
@@ -132,6 +141,7 @@ class UsersController extends Controller
         $users->email = $request->email;
         $users->nip = $request->nip;
         $users->jabatan = $request->jabatan;
+        $users->jakademi = $request->jakademi;
         $users->jurusan = $request->jurusan;
         $users->prodi = $request->prodi;
         $users->tgl_lahir = $request->tgl_lahir;
